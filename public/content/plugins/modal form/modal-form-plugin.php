@@ -50,38 +50,3 @@ function generate_form ( $content ) {
     <?php
 }
 
-
-if(isset($_POST['submit'])) {
-	if(trim($_POST['name']) === '') {
-		$nameError = 'Please enter your name.';
-		$hasError = true;
-	} else {
-		$name = trim($_POST['name']);
-	}
-
-	if(trim($_POST['email']) === '')  {
-		$emailError = 'Please enter your email address.';
-		$hasError = true;
-	} else if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['email']))) {
-		$emailError = 'You entered an invalid email address.';
-		$hasError = true;
-	} else {
-		$email = trim($_POST['email']);
-	}
-
-
-	if(!isset($hasError)) {
-
-		echo "<h1>Yes</h1>";
-		// $emailTo = get_option('tz_email');
-		// if (!isset($emailTo) || ($emailTo == '') ){
-		// 	$emailTo = get_option('admin_email');
-		// }
-		// $subject = '[PHP Snippets] From '.$name;
-		// $body = "Name: $name \n\nEmail: $email \n\nComments: $comments";
-		// $headers = 'From: '.$name.' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
-
-		// wp_mail($emailTo, $subject, $body, $headers);
-		// $emailSent = true;
-	}
-}
